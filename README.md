@@ -13,9 +13,11 @@ https://us04web.zoom.us/j/8899609070?pwd=VzlLUWY3RENsdWpyUVQrOTduZGcwUT09
   Passcode: devopsgrp
 
 # Youtube Channel
-Not Available
+DevOps Bangladesh 
+Link : https://www.youtube.com/channel/UC9FdZxqfZKkezot3wOkf1CQ
 
 # Facebook Group
+DevOps Bangladesh
 https://www.facebook.com/groups/devopsgrp
 
 
