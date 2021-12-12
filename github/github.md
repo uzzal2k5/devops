@@ -3,7 +3,7 @@ Introduction to Version Control (VCS) - GitHub Repository
 ---
 [ Back To Home ](../README.md)
 
-###[ Install Git ](https://git-scm.com/download/linux) 
+### [ Install Git ](https://git-scm.com/download/linux) 
 
 
 ## Mostly Used Command
