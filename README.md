@@ -16,13 +16,13 @@ Every Sunday at 9:00 PM BST (GMT+6)
 Subscribe [DevOps Bangladesh]( https://www.youtube.com/channel/UC9FdZxqfZKkezot3wOkf1CQ)
 
 # Facebook Group
-Join [DevOps Bangladesh](https://www.facebook.com/groups/devopsgrp)
+[Join DevOps Bangladesh](https://www.facebook.com/groups/devopsgrp)
 
 
 # Course Outline
 
   - DevOps Tools Overview
-  - Git Repository
+  - [ Git Repository ](./github/github.md)
   - Ansible
   - CICD : Jenkins
   - Nexus Artifactory 

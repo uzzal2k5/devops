@@ -74,7 +74,7 @@ Deletes the branch called "devops-demo" from the "origin" remote.
     # Limiting the result to the most recent two commits
     git log -p -2
 
-
+[ GitHub Learning Lab ](https://lab.github.com/)
 
 [ Back To Home ](../README.md)
 
