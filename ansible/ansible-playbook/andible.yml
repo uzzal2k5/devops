@@ -1,0 +1,14 @@
+---
+- name: Playbook
+  hosts: devops
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
+    - name: ensure nginx is running
+      service:
+        name: nginx
+        state: started

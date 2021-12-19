@@ -1,0 +1,4 @@
+NGINX_VERSION: "latest"
+DOMAIN_NAME: "devops-example.lab"
+NGINX_HOME: "/etc/nginx"
+CONTENT_ROOT: "/usr/share/nginx/html"

@@ -1,0 +1,9 @@
+- name: Install & Configure Nginx Proxy
+  hosts: "{{node_group}}"
+  remote_user: "{{NGINX_USER}}"
+  become: yes
+  vars_files:
+    - role-devops-ansible/nginx/vars/nginx-vars.yml
+    - sudoer_file
+  roles:
+    - role-devops-ansible/nginx

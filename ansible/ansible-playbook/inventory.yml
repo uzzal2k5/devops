@@ -1,0 +1,42 @@
+# Ansible Inventory YAML
+devops:
+  hosts:
+    devops:
+      ansible_host: 192.168.0.242
+      ansible_user: devops
+
+nginx:
+  hosts:
+    redash:
+      ansible_host: 192.168.0.245
+      ansible_user: redash
+      ansible_port: 22
+    terraform:
+      ansible_host: 192.168.0.240
+      ansible_user: terraform
+      ansible_port: 22
+
+redash:
+  hosts:
+    devops:
+      ansible_host: 192.168.0.245
+      ansible_user: redash
+      ansible_port: 22
+
+terraform:
+  hosts:
+    devops:
+      ansible_host: 192.168.0.240
+      ansible_user: terraform
+      ansible_port: 22
+
+
+webserver:
+  children:
+    nginx:
+    devops:
+
+all:
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_python_interpreter: /usr/bin/python3

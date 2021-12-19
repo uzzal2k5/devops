@@ -1,0 +1,68 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name  web.{{DOMAIN_NAME}};
+    return 301 https://$server_name$request_uri;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    #location / {
+    #    root   /usr/share/nginx/html;
+    #    index  index.html index.htm;
+    #}
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    #error_page   500 502 503 504  /50x.html;
+    #location = /50x.html {
+    #    root   /usr/share/nginx/html;
+    #}
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+
+server {
+    listen 443 ssl ;
+    listen [::]:443  ssl;
+    server_name web.{{DOMAIN_NAME}};
+    client_max_body_size 1G;
+
+    location / {
+        root   /usr/share/nginx/html/web;
+        index  index.html index.htm;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    include /etc/nginx/conf.d/ssl.conf;
+
+    ssl_protocols         SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers           HIGH:!aNULL:!MD5;
+    ssl_session_cache     shared:SSL:20m;
+    ssl_session_timeout   4h;
+}
+
+
