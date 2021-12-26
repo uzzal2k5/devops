@@ -5,4 +5,4 @@
   vars_files:
     - role-web-deployment/nginx/vars/nginx-vars.yml
   roles:
-    - role-web-deployment/nginxq
+    - role-web-deployment/nginx
