@@ -37,14 +37,5 @@
     group: "{{ NGINX_USER }}"
     mode: 0775
 
-- name: adding existing user "{{ ansible_user }}" to group sudo
-    user:
-      name: "{{ NGINX_USER }}"
-      groups: adm
-      append: yes
 
-- name: Ensure nginx is running
-    service:
-      name: nginx
-      state: started
 
