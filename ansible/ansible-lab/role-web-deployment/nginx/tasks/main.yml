@@ -6,6 +6,5 @@
   apt:
     name: nginx
     state: latest
-- name: Copy SSL certificate to Target Machine
-- name: Configure Nginx for Web Application
-- name: Copy web application content to {{CONTENT_ROOT}}
+
+
