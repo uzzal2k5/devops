@@ -1,0 +1,11 @@
+- name: Target Machine (Ubunt 20.04) Update [ apt update]
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+- name: Install Nginx into Target Machine ( apt install nginx )
+  apt:
+    name: nginx
+    state: latest
+- name: Copy SSL certificate to Target Machine
+- name: Configure Nginx for Web Application
+- name: Copy web application content to {{CONTENT_ROOT}}

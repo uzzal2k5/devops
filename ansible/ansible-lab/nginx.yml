@@ -1,0 +1,8 @@
+- name: Install & Configure Nginx to deploy Web application
+  hosts: "{{node_group}}"
+  remote_user: "{{NGINX_USER}}"
+  become: yes
+  vars_files:
+    - role-web-deployment/nginx/vars/nginx-vars.yml
+  roles:
+    - role-web-deployment/nginxq
