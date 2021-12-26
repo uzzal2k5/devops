@@ -18,14 +18,14 @@ nginx:
 
 redash:
   hosts:
-    devops:
+    redash:
       ansible_host: 192.168.0.245
       ansible_user: redash
       ansible_port: 22
 
 terraform:
   hosts:
-    devops:
+    terraform:
       ansible_host: 192.168.0.240
       ansible_user: terraform
       ansible_port: 22

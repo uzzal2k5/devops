@@ -1,31 +1,25 @@
 ---
-- name: "apt-get update"
+- name: "Update Target Machine:  apt-get update"
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: Ensure nginx is at the latest version
+- name: "Install  Nginx  latest version on Target Machine"
   apt:
     name: nginx
     state: latest
-#- name: Create Nginx conf.d directory (/nginx/config/conf.d})
-#  file:
-#    path: "{{NGINX_HOME}}/config/conf.d/certs"
-#    state: directory
-#    owner: "{{ NGINX_USER }}"
-#    group: "{{ NGINX_USER }}"
-#    mode: 0775
+
 - name: Ansible copy certs directory to the remote server
   copy:
     src: certs
-    dest: "{{NGINX_HOME}}/config/conf.d"
+    dest: "{{NGINX_HOME}}/conf.d"
     owner: "{{ NGINX_USER }}"
     group: "{{ NGINX_USER }}"
     mode: 0775
 - name: Ansible copy SSL conf to the remote server
   template:
     src: ssl.conf.j2
-    dest: "{{NGINX_HOME}}/config/conf.d/ssl.conf"
+    dest: "{{NGINX_HOME}}/conf.d/ssl.conf"
     owner: "{{ NGINX_USER }}"
     group: "{{ NGINX_USER }}"
     mode: 0664
@@ -33,7 +27,7 @@
 - name: Ansible copy default conf to the remote server
   template:
     src: default.conf.j2
-    dest: "{{NGINX_HOME}}/config/conf.d/default.conf"
+    dest: "{{NGINX_HOME}}/sites-available/default"
     owner: "{{ NGINX_USER }}"
     group: "{{ NGINX_USER }}"
     mode: 0664
@@ -45,6 +39,13 @@
     owner: "{{ NGINX_USER }}"
     group: "{{ NGINX_USER }}"
     mode: 0775
+
+- name: adding existing user "{{ ansible_user }}" to group sudo
+    user:
+      name: "{{ NGINX_USER }}"
+      groups: adm
+      append: yes
+
 - name: Ensure nginx is running
     service:
       name: nginx
