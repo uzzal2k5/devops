@@ -1,0 +1,30 @@
+devops:
+  hosts:
+    devops:
+      ansible_host: 192.168.0.242
+      ansible_user: devops
+      ansible_port: 22
+
+nginx:
+  hosts:
+    nginx:
+      ansible_host: 192.168.0.243
+      ansible_user: nginx
+      ansible_port: 22
+
+
+server_group:
+  hosts:
+    devops:
+      ansible_host: 192.168.0.242
+      ansible_user: devops
+      ansible_port: 22
+    nginx:
+      ansible_host: 192.168.0.243
+      ansible_user: nginx
+      ansible_port: 22
+
+all:
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_python_interpreter: /usr/bin/python3
